@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/* Shared
+   ========================================================================== */
+a {
+    color: $link-color;
+    text-decoration: none;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    /* ...and now for the proper property */
+    transition:.5s;
+
+    &:hover, &:focus {
+        text-decoration: none;
+        color: $link-color--hover;
+    }
+}
+
+
+/*doc
+---
+title: Links
+name: 02_links
+category: Blocks
+---
+
+```html_example
+
+<p>
+    <a href="#">Link</a>
+</p>
+
+```
+*/

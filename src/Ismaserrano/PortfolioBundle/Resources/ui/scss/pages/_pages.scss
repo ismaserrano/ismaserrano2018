@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Pages
+
+   This file is exclusively intended for setting up imports
+   Never add styles directly to this file
+   ========================================================================== */
+
+// @import "..";
+
+html,
+body {
+
+  .img-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  #main-loader {
+    position:absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: -9999px;
+    background-color: #333;
+    z-index: 1000;
+    opacity: 0;
+  }
+
+  main[role=main] {
+    opacity: 0;
+
+    ul {
+      list-style: none;
+    }
+    
+    #project-detail {
+      padding: 0 20px;
+
+      #detail-container {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px 40px;
+
+        h1 {
+          text-align: right;
+        }
+
+        .text-right {
+          margin-bottom:40px;
+
+          p {
+            text-align: right;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .text-pp {
+      max-width: 100%;
+    }
+
+    .img-preload {
+      opacity: 0;
+
+      .loader {
+        opacity: 0;
+        //height: 100px;
+        //width: 100px;
+        text-align: center;
+        padding: 1.7em;
+        margin: 0 auto;
+        display: inline-block;
+        vertical-align: top;
+        position: absolute;
+      }
+    }
+  }
+}

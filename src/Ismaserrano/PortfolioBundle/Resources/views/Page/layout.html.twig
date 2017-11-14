@@ -1,0 +1,9 @@
+{#{% if app.request.xmlHttpRequest %}#}
+    {#{% extends '@IsmaserranoPortfolio/Layout/ajax.layout.html.twig' %}#}
+{#{% else %}#}
+    {#{% extends '@IsmaserranoPortfolio/Layout/layout.html.twig' %}#}
+{#{% endif %}#}
+
+{% extends app.request.isxmlHttpRequest()
+? 'IsmaserranoPortfolioBundle:Layout:ajax.layout.html.twig'
+: 'IsmaserranoPortfolioBundle:Layout:layout.html.twig' %}

@@ -1,0 +1,5 @@
+name: "Home page"
+rows:
+    - regions:
+        - { name: "main", span: 12 }
+template: "IsmaserranoPortfolioBundle::Pages\\HomePage\\pagetemplate.html.twig"

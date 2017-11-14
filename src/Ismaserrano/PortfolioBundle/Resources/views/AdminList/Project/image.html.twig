@@ -1,0 +1,9 @@
+{% for key, image in object %}
+    {% if key == 0 %}
+        {% if image.media.url is not empty %}
+            <img class="thumbnail" src="{{ image.media.url | imagine_filter('project_thumbnail') }}" />
+        {% else %}
+            Sin imagen
+        {% endif %}
+    {% endif %}
+{% endfor %}

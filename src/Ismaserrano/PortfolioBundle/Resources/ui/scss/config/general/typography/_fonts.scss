@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Fonts
+
+   This file is exclusively intended for setting up variables
+   Never add styles directly to this file
+   ========================================================================== */
+
+/* Webfonts
+   ========================================================================== */
+$primary-font: 'Heebo', sans-serif;
+$secondary-font: 'Abril Fatface', cursive;
+
+
+/* Iconfonts
+   ========================================================================== */
+$iconfont-name: "icomoon-frontend";
+
+
+/* Defaults
+   ========================================================================== */
+$font-family--base:         $primary-font;
+$font-family--headings:     $secondary-font;
+$font-family--buttons:      $primary-font;
+$primary-font-weight: 300;

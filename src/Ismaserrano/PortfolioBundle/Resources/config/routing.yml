@@ -1,0 +1,14 @@
+ismaserranoportfoliobundle_default:
+    resource: '@IsmaserranoPortfolioBundle/Controller/DefaultController.php'
+    type:     annotation
+    prefix:   /
+
+#ismaserranoportfoliobundle_projects:
+#    resource: '@IsmaserranoPortfolioBundle/Controller/DefaultController.php'
+#    type: annotation
+#    prefix: /projects
+
+ismaserranoportfoliobundle_project_admin_list:
+    resource: '@IsmaserranoPortfolioBundle/Controller/ProjectAdminListController.php'
+    type:     annotation
+    prefix:   /admin/project/

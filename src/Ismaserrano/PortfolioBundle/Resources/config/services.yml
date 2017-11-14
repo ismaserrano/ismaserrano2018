@@ -1,0 +1,19 @@
+services:
+#    core.projects_manager:
+#        class: Ismaserrano\PortfolioBundle\Entity\Project
+#        arguments:
+#          - '@doctrine.orm.entity_manager'
+#          - '@request_stack'
+
+    ismaserranoportfoliobundle.projects.menu.adaptor:
+        class: Ismaserrano\PortfolioBundle\Helper\Menu\ProjectMenuAdaptor
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: kunstmaan_admin.menu.adaptor }
+
+#    listener.requestresponse:
+#        class: Ismaserrano\PortfolioBundle\EventListener\RequestListener
+#        arguments: ['@service_container']
+#        tags:
+#          - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+#          - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
