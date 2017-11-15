@@ -9,7 +9,8 @@ Based on Symfony 3 with Kunstmaan Bundles.
 1. `composer install` Follow the instructions when composer finish the process, creating database, editing DDBB parameters.
 	1. `bin/console doctrine:schema:update --force` Creates the database structure.
 	2. `bin/console doctrine:migration:migrate` Update current migrations versions.
-2. `npm install`
-3. `bower install`
+2. `gulp build` to build all **IsmaserranoPortfolioBundle** assets and dump all bundles assets.
+3. `npm install`
+4. `bower install`
 
 Launch server with `bin/console server:run`
