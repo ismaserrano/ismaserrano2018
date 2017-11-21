@@ -1,13 +1,28 @@
 {% extends 'IsmaserranoPortfolioBundle:Page:layout.html.twig' %}
 {% block content %}
     {{ render_pagetemplate(page) }}
-        <div id="project-detail" class="col-lg-12 col-md-12 col-sm-12">
-            {% if page.project %}
-                <div id="detail-container">
-                    <h1>{{ page.project.title }}</h1>
-                    <div class="text-right">{{ page.project.body | raw }}</div>
-                    {#{{ dump(page.project) }}#}
+    <div id="project-detail" class="col-lg-12 col-md-12 col-sm-12" data-project-bg="{{ page.project.images.0.media.url }}">
+        {% if page.project %}
+            <div id="detail-container">
+                <h1>{{ page.project.title }}</h1>
+                <div class="text-right">{{ page.project.body | raw }}</div>
+                {#{{ dump(page.project) }}#}
+                <div class="row">
+                    {% for keyImg, image in page.project.images %}
+                        <div class="item-gal col-lg-3 col-md-6 col-sm-12 img-preload">
+                            <div class="img-inside-container">
+                                <img class="img-responsive thumbnail" data-src="{{ image.media.url | imagine_filter('project_detail_thumbnail') }}" style="display: inline-block" />
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
+    </div>
+    {#<script type="text/javascript">#}
+        {#var projectImages = [];#}
+        {#{% for keyImg, image in page.project.images %}#}
+        {#projectImages.push('{{ image.media.url }}');#}
+        {#{% endfor %}#}
+    {#</script>#}
 {% endblock %}

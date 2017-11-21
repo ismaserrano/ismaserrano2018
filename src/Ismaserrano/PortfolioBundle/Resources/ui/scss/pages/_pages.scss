@@ -31,19 +31,83 @@ body {
     opacity: 0;
   }
 
+  #bg-pattern {
+    position: fixed;
+    top:0;
+    left:0;
+    background: url('#{$backgrounds}/bg-pattern.png');
+    width:100%;
+    height:100%;
+    z-index: -1;
+  }
+
+  .bg-image {
+    //background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/953/mision.jpg') no-repeat top center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    min-height: 1024px;
+    height: 100%;
+    z-index: -2;
+  }
+
+  .loader {
+    text-align: center;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    width: 100%;
+    top: 45%;
+  }
+
+  #main-wrapper {
+    display: inline-block;
+    min-height: 85%;
+    width: 100%;
+  }
+
   main[role=main] {
     opacity: 0;
+    min-height: 85%;
+
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
 
     ul {
       list-style: none;
     }
     
-    #project-detail {
+    #project-detail, #page-detail {
       padding: 0 20px;
 
+      .container {
+        width: 100%;
+
+        .text-pp {
+          display: inline-block;
+        }
+      }
+
       #detail-container {
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 10px 40px;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px 40px 20px;
 
         h1 {
           text-align: right;
@@ -57,6 +121,14 @@ body {
             margin: 0;
           }
         }
+
+        .row {
+          .item-gal {
+            img {
+              width: 100%;
+            }
+          }
+        }
       }
     }
 
@@ -65,19 +137,216 @@ body {
     }
 
     .img-preload {
-      opacity: 0;
+      min-height: 250px;
 
-      .loader {
+      .img-inside-container {
         opacity: 0;
-        //height: 100px;
-        //width: 100px;
-        text-align: center;
-        padding: 1.7em;
-        margin: 0 auto;
-        display: inline-block;
-        vertical-align: top;
-        position: absolute;
       }
+    }
+
+    .project-pp {
+      ul {
+        li {
+          //margin: 5px;
+          padding: 5px;
+
+          //&.col-lg-4 {
+          //  width: 32.3333%;
+          //}
+          //&.col-md-6 {
+          //  width: 48%;
+          //}
+          .li-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: relative;
+
+            .container-overflow {
+              width: 100%;
+              height: 100%;
+
+              a {
+                width: 100%;
+                height: 100%;
+
+                &:hover {
+
+                  .project-overlay {
+                    opacity: 1;
+
+                    h2 {
+                      bottom: 45%;
+                      color: #FFF;
+                    }
+
+                  }
+
+                }
+
+                .project-overlay {
+                  background-color: rgba(0, 0, 0, 0.7);
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  opacity: 0;
+                  @include transition(all .5s ease-in-out);
+
+                  h2 {
+                    margin: 0 auto;
+                    text-align: center;
+                    font-family: $font-family--base;
+                    font-size: 28px;
+                    font-weight: 400;
+                    position: absolute;
+                    bottom: 20%;
+                    width: 100%;
+                    @include transition(all .5s ease-in-out);
+                  }
+                }
+
+                .img-preload {
+                  width: 100%;
+                  display: inline-block;
+
+                  img {
+                    vertical-align: bottom;
+                    width: 100%;
+                    @include transition(all .5s ease-in-out);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main-nav {
+    width: 100%;
+    height: 80px;
+
+    #overlay-menu {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      margin: 0;
+      z-index: 100;
+      padding-top: 80px;
+      @include transition(all .5s ease-in-out);
+      opacity: 0;
+      height: 0px;
+      //top: -300px;
+      overflow: hidden;
+
+      ul {
+        list-style: none;
+        margin: 0 0 0 15%;
+
+        &.nav {
+          li {
+            width: 100%;
+            border-bottom: 1px solid $grey;
+            padding: 20px 0;
+            margin-left: 400px;
+            opacity: 0;
+
+            a {
+              font-size: 30px;
+              text-decoration: none;
+            }
+          }
+          li:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+
+      &.active {
+        opacity: 1;
+        height: 100%;
+        top: 0px;
+      }
+    }
+
+    #volume {
+      position: absolute;
+      top: 9px;
+      left: 70px;
+      font-size: 26px;
+      cursor: pointer;
+      width: 25px;
+      height: 35px;
+      z-index: 101;
+    }
+
+    #menu-icon {
+      width: 30px;
+      height: 15px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      @include transition(all .5s ease-in-out);
+      cursor: pointer;
+      z-index: 101;
+    }
+
+    #menu-icon span {
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: #FFF;
+      border-radius: 4px;
+      opacity: 1;
+      left: 0;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      @include transition(all .25s ease-in-out);
+    }
+
+    #menu-icon span:nth-child(1) {
+      top: 0px;
+    }
+
+    #menu-icon span:nth-child(2),#menu-icon span:nth-child(3) {
+      top: 7px;
+    }
+
+    #menu-icon span:nth-child(4) {
+      top: 14px;
+    }
+
+    #menu-icon.open span:nth-child(1) {
+      top: 14px;
+      width: 0%;
+      left: 50%;
+    }
+
+    #menu-icon.open span:nth-child(2) {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+
+    #menu-icon.open span:nth-child(3) {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+
+    #menu-icon.open span:nth-child(4) {
+      top: 14px;
+      width: 0%;
+      left: 50%;
     }
   }
 }

@@ -13,7 +13,7 @@ $secondary-font: 'Abril Fatface', cursive;
 
 /* Iconfonts
    ========================================================================== */
-$iconfont-name: "icomoon-frontend";
+$iconfont-name: "font-awesome";
 
 
 /* Defaults
@@ -22,3 +22,17 @@ $font-family--base:         $primary-font;
 $font-family--headings:     $secondary-font;
 $font-family--buttons:      $primary-font;
 $primary-font-weight: 300;
+
+$height-mask: 250px;
+
+// To regulate alpha is recommended to use gray scale.
+// Recomiendo utilizar escala de grises
+
+$darken: 60%;
+
+$color: rgb(255,255,255);
+$color-alpha: darken( $color, $darken );
+
+// Apply color here!
+// Todo el color que quieras!
+$color-base: rgb(0,0,0);

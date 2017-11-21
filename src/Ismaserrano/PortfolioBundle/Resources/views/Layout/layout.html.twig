@@ -28,10 +28,22 @@
 
     {# CSS #}
     {% include '@IsmaserranoPortfolio/Layout/_css.html.twig' %}
+
+    {#<script type="text/javascript" charset="utf-8">#}
+        {#var app = {#}
+            {#locale: '{{ app.request.locale }}',#}
+            {#frontendBase: '{{ asset('/') }}'#}
+        {#};#}
+    {#</script>#}
 </head>
 {% endspaceless %}
 
 <body id="sidebar-toggle-container" class="sidebar-toggle-container{% block extra_body_classes %}{% endblock %}" {% block extra_body_attributes %}{% endblock %}>
+    <div id="image-bg" data-background-image="" class="img-preload bg-image"></div>
+    <div id="image-bgTemp" data-background-image="" class="bg-image"></div>
+    <div id="bg-pattern"></div>
+    <div id="main-loader"></div>
+
     {# Google Tagmanager #}
     {% include '@IsmaserranoPortfolio/Layout/_googletagmanager.html.twig' %}
 
@@ -50,10 +62,11 @@
     {#{% endblock %}#}
 
     {# Content #}
-    <div id="main-loader"></div>
-    <main role="main">
-        {% block content %}{% endblock %}
-    </main>
+    <div id="main-wrapper">
+        <main role="main">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
 
     {# Footer #}
     {% block footer %}

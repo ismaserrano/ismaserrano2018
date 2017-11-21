@@ -169,14 +169,19 @@ liip_imagine:
                 thumbnail: { size: [400,null], mode: outbound, allow_upscale: false }
 
         project_thumbnail:
-            quality: 80
+            quality: 90
             filters:
-                thumbnail: { size: [100, 100], mode: outbound }
+                thumbnail: { size: [800, 540], mode: outbound }
+
+        project_detail_thumbnail:
+            quality: 90
+            filters:
+                thumbnail: { size: [800, 480], mode: outbound }
 
         project_background:
             quality: 80
             filters:
-                thumbnail: { size: [1280, 600], mode: outbound }
+                thumbnail: { size: [1280, 960], mode: outbound }
 
 services:
     twig.extension.text:

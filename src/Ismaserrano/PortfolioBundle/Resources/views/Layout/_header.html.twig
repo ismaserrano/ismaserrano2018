@@ -2,28 +2,53 @@
 {# Default header #}
 {% if nodemenu is defined %}
     <header role="header" class="main-header">
-        <div class="container-fluid">
+        {#<div class="container-fluid">#}
 
             {# Logo #}
             {% set homepagePageNode = nodemenu.getNodeByInternalName('homepage') %}
-            <a href="{{ path('_slug', { 'url': homepagePageNode.slug }) }}" class="main-header__logo">
-                Ismael Serrano · Senior Developer
-            </a>
+            {#<a href="{{ path('_slug', { 'url': homepagePageNode.slug }) }}" class="main-header__logo">#}
+                {#Ismael Serrano · Senior Developer#}
+            {#</a>#}
 
 
             {# Main navigation #}
-            <nav role="navigation" class="main-header__nav main-nav">
-                <a href="{{ path('_slug', { 'url': homepagePageNode.slug }) }}" class="main-nav__link">
-                    Projects
-                </a>
-            {% set activeSubnode = nodemenu.getActiveForDepth(1) %}
-            {% for node in activeSubnode.children %}
-                {% if not node.node.isHiddenFromNav() %}
-                    <a href="{{ path('_slug', { 'url': node.slug }) }}" class="main-nav__link {% if(node.active) %}main-nav__link--active{% endif %}">
-                        {{ node.title }}
-                    </a>
-                {% endif %}
-            {% endfor %}
+            <nav role="navigation" class="main-header__nav main-nav navbar navbar-default navbar-fixed-top">
+                <div id="overlay-menu">
+                    <ul class="nav sidebar-nav">
+                        <li>
+                            <a href="{{ path('_slug', { 'url': homepagePageNode.slug }) }}" title="{{ homepagePageNode.title }}" class="main-nav__link">
+                                Projects
+                            </a>
+                        </li>
+                {% set activeSubnode = nodemenu.getActiveForDepth(1) %}
+                {% for node in activeSubnode.children %}
+                    {% if not node.node.isHiddenFromNav() %}
+                        <li>
+                            <a href="{{ path('_slug', { 'url': node.slug }) }}" title="{{ node.title }}" class="main-nav__link {% if(node.active) %}main-nav__link--active{% endif %}">
+                                {{ node.title }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                        <li>
+                            <a href="mailto:info@ismaserrano.com" class="main-nav__link no-nav">
+                                Contact
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="main-nav__link enjoy no-nav" data-text-default="Enjoy music & visualization" data-text-active="Show me the content!">
+                                Enjoy music & visualization
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div id="volume"><i class="fa fa-volume-up" aria-hidden="true"></i></div>
             </nav>
 
 
@@ -61,7 +86,7 @@
                     </nav>
                 </div>
             {% endif %}
-        </div>
+        {#</div>#}
     </header>
 {% endif %}
 

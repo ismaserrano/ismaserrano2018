@@ -15,11 +15,12 @@
     },
 
     "dist": {
-	"css": "<=distPath>css",
-	"js": "<=distPath>js",
-	"img": "<=distPath>img",
-	"fonts": "<=distPath>fonts",
-	"styleguide": "<=distPath>styleguide"
+        "css": "<=distPath>css",
+        "js": "<=distPath>js",
+        "img": "<=distPath>img",
+        "fonts": "<=distPath>fonts",
+        "styleguide": "<=distPath>styleguide",
+        "music": "<=distPath>music"
     },
 
     "scssFolder": "<=resourcesPath>ui/scss/",
@@ -29,18 +30,17 @@
     "fonts": "<=resourcesPath>ui/fonts/**/*.{eot,svg,ttf,woff,woff2}",
     "twig": "<=resourcesPath>views/**/*.html.twig",
     "scss": "<=resourcesPath>ui/scss/**/*.scss",
+    "music": "<=resourcesPath>ui/music/**/*.*",
 
     "js": {
 	"app": "<=resourcesPath>ui/js/**/*.js",
 	"footer": [
 	    "<=bowerComponentsPath>jquery/dist/jquery.min.js",
+	    "<=bowerComponentsPath>fastclick/lib/fastclick.js",
+	    "<=bowerComponentsPath>three.js/build/three.min.js",
         "<=bowerComponentsPath>velocity/velocity.min.js",
         "<=bowerComponentsPath>velocity/velocity.ui.min.js",
         "<=bowerComponentsPath>PreloadJS/lib/preloadjs.min.js",
-        "<=bowerComponentsPath>jquery.nicescroll/jquery.nicescroll.min.js",
-        "<=bowerComponentsPath>cargobay/src/scroll-to-top/js/jquery.scroll-to-top.js",
-        "<=bowerComponentsPath>cargobay/src/videolink/js/jquery.videolink.js",
-        "<=bowerComponentsPath>picturefill/dist/pictureFill.js",
         "<=resourcesPath>ui/js/**/*.js"
 	],
 	"other": [

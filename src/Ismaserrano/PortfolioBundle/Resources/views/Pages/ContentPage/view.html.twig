@@ -1,5 +1,9 @@
 {% extends 'IsmaserranoPortfolioBundle:Page:layout.html.twig' %}
 
 {% block content %}
-    {{ render_pagetemplate(page) }}
+    <div id="page-detail" class="col-lg-12 col-md-12 col-sm-12">
+        <div id="detail-container">
+            {{ render_pagetemplate(page) }}
+        </div>
+    </div>
 {% endblock %}

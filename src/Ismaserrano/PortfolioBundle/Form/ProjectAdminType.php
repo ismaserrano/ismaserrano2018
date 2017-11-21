@@ -65,7 +65,7 @@ class ProjectAdminType extends AbstractType
                 'nested_form' => true,
                 'nested_sortable' => false,
                 'nested_form_min' => 1,
-                'nested_form_max' => 3,
+                'nested_form_max' => 10,
             )
         ));
 

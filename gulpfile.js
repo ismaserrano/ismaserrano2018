@@ -200,7 +200,7 @@ gulp.task('scripts-prod', ['jshint'], function() {
         })
 
         // Concat
-        .pipe(plugins.concat('footer.min.js'))
+        .pipe(plugins.concat('app.min.js'))
 
         // Revision
         .pipe(plugins.rev())

@@ -23,23 +23,42 @@
 
 {% if resource.media is not empty %}
     {% if app.request %}
-        <figure class="image-pp">
-            {% set imageType = resource.media.originalFilename|lower|split('.')|last %}
+        {#<figure class="image-pp">#}
+            {#{% set imageType = resource.media.originalFilename|lower|split('.')|last %}#}
 
-            {% if resource.link is defined and resource.link != '' %}
-            <a href="{{ resource.link | replace_url }}" {% if resource.openinnewwindow %}target="_blank"{% endif %}>
+            {#{% if resource.link is defined and resource.link != '' %}#}
+            {#<a href="{{ resource.link | replace_url }}" {% if resource.openinnewwindow %}target="_blank"{% endif %}>#}
+                {#{% endif %}#}
+
+                {#{{ buildImage.setFilters(resource.media.url, resource.altText, imageType) }}#}
+
+                {#{% if resource.link is defined and resource.link != '' %}#}
+            {#</a>#}
+            {#{% endif %}#}
+            {#{% if resource.caption %}#}
+                {#<figcaption>#}
+                    {#<p>{{ resource.caption }}</p>#}
+                {#</figcaption>#}
+            {#{% endif %}#}
+        {#</figure>#}
+        {#{% if not app.request.isxmlHttpRequest() %}#}
+            {#<style type="text/css">#}
+                {##image-bg {#}
+                    {#background: url({{ resource.media.url }}) no-repeat top center !important;#}
+                    {#-webkit-background-size: cover !important;#}
+                    {#-moz-background-size: cover !important;#}
+                    {#-o-background-size: cover !important;#}
+                    {#background-size: cover !important;#}
+                {#}#}
+            {#</style>#}
+        {#{%  else %}#}
+            <script type="text/javascript">
+                {% if not app.request.isxmlHttpRequest() %}
+                    var resourceMediaBg = '{{ resource.media.url }}';
+                {% else %}
+                    IsmaserranoPortfolioBundle.replaceBgByAjax('{{ resource.media.url }}');
                 {% endif %}
-
-                {{ buildImage.setFilters(resource.media.url, resource.altText, imageType) }}
-
-                {% if resource.link is defined and resource.link != '' %}
-            </a>
-            {% endif %}
-            {% if resource.caption %}
-                <figcaption>
-                    <p>{{ resource.caption }}</p>
-                </figcaption>
-            {% endif %}
-        </figure>
+            </script>
+        {#{% endif %}#}
     {% endif %}
 {% endif %}
